@@ -54,7 +54,7 @@ class BrandResource extends Resource
                 ]),
                 ComponentsFileUpload::make('image')
                     ->image()
-                    ->directory('Brand'),
+                    ->directory('brands'),
 
 
                 Toggle  ::make('is_active')
