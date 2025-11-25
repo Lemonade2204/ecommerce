@@ -6,6 +6,7 @@ use App\Filament\Resources\Orders\Pages\CreateOrder;
 use App\Filament\Resources\Orders\Pages\EditOrder;
 use App\Filament\Resources\Orders\Pages\ListOrders;
 use App\Filament\Resources\Orders\Pages\ViewOrder;
+use App\Filament\Resources\Orders\RelationManagers\AddressRelationManager;
 use App\Filament\Resources\Orders\Schemas\OrderForm;
 use App\Filament\Resources\Orders\Schemas\OrderInfolist;
 use App\Filament\Resources\Orders\Tables\OrdersTable;
@@ -21,7 +22,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\Hidden;
-use Filament\Forms\Components\Placeholder;
+
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -41,6 +42,7 @@ use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Number;
+use Filament\Forms\Components\Placeholder;
 
 class OrderResource extends Resource
 {
@@ -68,7 +70,7 @@ class OrderResource extends Resource
                         ])
                         ->required(),
                     
-                        Select::make('Payment_status')
+                        Select::make('payment_status')
                         ->options([
                             'pending' => 'Pending',
                             'completed' => 'Completed',
@@ -174,19 +176,22 @@ class OrderResource extends Resource
 
                                     ])->columns(12),
 
-                                   TextEntry::make('grand_total')
-                                    ->label('Grand Total')
-                                    ->state(function (Get $get, Set $set) {
-                                        $total = 0;
 
-                                        if ($items = $get('items')) {
-                                            foreach ($items as $key => $item) {
-                                                $total += $get("items.{$key}.total_amount") ?? 0;
+                                    Placeholder::make('grand_total_placeholder')
+                                        ->label('Grand Total')
+                                        ->content(function(Get $get, Set $set)
+                                        {
+                                            $total = 0;
+
+                                            if ($repeaters = $get('items')) {
+                                                foreach ($repeaters as $key => $repeater) {
+                                                    $total += $get("items.{$key}.total_amount") ?? 0;
+                                                }
                                             }
-                                        }
-                                        $set('grand_total', $total);
-                                        return Number::currency($total, 'INR');
-                                    }),
+                                            $set('grand_total', $total);
+                                            return Number::currency($total, 'INR');
+                                        }),
+                            
                                     
 
                                     Hidden::make('grand_total')
@@ -241,13 +246,6 @@ class OrderResource extends Resource
                         'delivered' => 'Delivered',
                         'canceled' => 'Canceled',
                     ])
-                    ->colors([
-                        'new' => 'info',
-                        'processing' => 'warning',
-                        'shipped' => 'success',
-                        'delivered' => 'success',
-                        'canceled' => 'danger',
-                    ])
                     ->sortable()
                     ->searchable(),
 
@@ -283,7 +281,7 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            AddressRelationManager::class
         ];
     }
 
