@@ -33,6 +33,10 @@ class Order extends Model
 {
     return $this->belongsTo(Product::class);
 }
+    protected function getTableQuery()
+{
+    return Order::query()->latest();
+}
 
     public function address()
     {

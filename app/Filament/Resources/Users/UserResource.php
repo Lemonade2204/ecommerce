@@ -30,6 +30,9 @@ class UserResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-group';
 
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?int $navigationSort = 1;
     public static function form(Schema $schema): Schema
     {
         return $schema
@@ -101,6 +104,11 @@ class UserResource extends Resource
         ];
     }
 
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['name', 'email'];
+    }
     public static function getPages(): array
     {
         return [

@@ -30,7 +30,7 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static ?int $navigationSort = 3;
     public static function form(Schema $schema): Schema
     {
         // return CategoryForm::configure($schema);
