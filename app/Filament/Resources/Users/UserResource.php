@@ -21,6 +21,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Tables;
 use App\Filament\Resources\Users;
+use App\Filament\Resources\Users\RelationManagers\OrdersRelationManager;
+use App\Models\Order;
 use Filament\Actions;
 class UserResource extends Resource
 {
@@ -95,7 +97,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            OrdersRelationManager::class,
         ];
     }
 
