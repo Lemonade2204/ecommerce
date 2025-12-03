@@ -96,6 +96,7 @@
                     <a href="/products/{{$product->slug}}" class="">
                       <img src="{{url('storage/' . $product->image[0])}}" alt="{{$product->name}}" class="object-cover w-full h-56 mx-auto ">
                     </a>
+                    
                   </div>
                   <div class="p-3 ">
                     <div class="flex items-center justify-between gap-2 mb-2">
@@ -104,6 +105,7 @@
                       </h3>
                     </div>
                     <p class="text-lg ">
+             
                       <span class="text-green-600 dark:text-green-600">{{Number::currency($product->price, 'INR') }}</span>
                     </p>
                   </div>

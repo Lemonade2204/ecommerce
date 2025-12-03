@@ -56,6 +56,7 @@ class CategoryResource extends Resource
                 ]),
                 ComponentsFileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('categories'),
 
 

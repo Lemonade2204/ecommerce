@@ -55,6 +55,7 @@ class BrandResource extends Resource
                 ]),
                 ComponentsFileUpload::make('image')
                     ->image()
+                    ->disk('public')
                     ->directory('brands'),
 
 
