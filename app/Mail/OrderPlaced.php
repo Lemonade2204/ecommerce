@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -22,7 +23,9 @@ class OrderPlaced extends Mailable
     public function __construct($order)
     {
         $this->order = $order;
+        // $order = Order::findOrFail($order->id);
     }
+
 
     /**
      * Get the message envelope.

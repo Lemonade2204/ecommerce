@@ -44,7 +44,7 @@ class ProductsPage extends Component
         $this->dispatch('update-cart-count', total_count: $total_count)->to(Navbar::class);
 
 
-        LivewireAlert::title('Hello World')
+        LivewireAlert::title('Added to Cart')
             ->text('Product added to the cart successfully')
             ->position('bottom-end')
             ->timer(3000)

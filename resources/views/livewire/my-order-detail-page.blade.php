@@ -94,7 +94,7 @@
                 {
                   $status = '<span class="bg-green-500 py-1 px-3 rounded text-white shadow">Delivered</span>';
                 }
-                if($order->status == 'canceled')
+                if($order->status == 'cancelled')
                 {
                   $status = '<span class="bg-red-500 py-1 px-3 rounded text-white shadow">Cancelled</span>';
                 }
