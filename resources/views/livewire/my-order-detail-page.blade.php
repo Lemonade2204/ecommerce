@@ -174,14 +174,14 @@
                 </div>
               </td>
 
-              <td class="py-4">{{ Number::currency($item->unit_amount ?? $item->product->price,'INR') }}</td>
+              <td class="py-4">{{ Number::currency($item->unit_amount ?? $item->product->price,'PHP') }}</td>
                {{-- <td class="py-4">{{dd($item->unit_amount)}}</td>
                
               {{-- <td class="py-4">{{ Number::currency($item->unit_amount,'INR') }}</td> --}}
               <td class="py-4">
                 <span class="text-center w-8">{{ $item->quantity }}</span>
               </td>
-              <td class="py-4">{{ Number::currency($item->total_amount,'INR') }}</td>
+              <td class="py-4">{{ Number::currency($item->total_amount,'PHP') }}</td>
             </tr>
               
             @endforeach
@@ -210,20 +210,20 @@
         <h2 class="text-lg font-semibold mb-4">Summary</h2>
         <div class="flex justify-between mb-2">
           <span>Subtotal</span>
-          <span>{{ Number::currency($item->order->grand_total,'INR') }}</span>
+          <span>{{ Number::currency($item->order->grand_total,'PHP') }}</span>
         </div>
         <div class="flex justify-between mb-2">
           <span>Taxes</span>
-          <span>{{ Number::currency(0,'INR') }}</span>
+          <span>{{ Number::currency(0,'PHP') }}</span>
         </div>
         <div class="flex justify-between mb-2">
           <span>Shipping</span>
-          <span>{{ Number::currency(0,'INR') }}</span>
+          <span>{{ Number::currency(0,'PHP') }}</span>
         </div>
         <hr class="my-2">
         <div class="flex justify-between mb-2">
           <span class="font-semibold">Grand Total</span>
-          <span class="font-semibold">{{ Number::currency($item->order->grand_total,'INR') }}</span>
+          <span class="font-semibold">{{ Number::currency($item->order->grand_total,'PHP') }}</span>
         </div>
 
       </div>

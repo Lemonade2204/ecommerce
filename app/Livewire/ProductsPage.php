@@ -12,7 +12,7 @@ use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Jantinnerezo\LivewireAlert\Facades\LivewireAlert;
-#[Title('Products - DCodeMania')]
+#[Title('Products - MaNo')]
 class ProductsPage extends Component
 {
     use WithPagination;

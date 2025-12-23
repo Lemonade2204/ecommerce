@@ -1,6 +1,6 @@
 
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-	<h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+<diclass="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+	v <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
 		Checkout
 	</h1>
 	<form wire:submit.prevent='placeOrder'>
@@ -133,28 +133,28 @@
 					<div class="text-xl font-bold underline text-gray-700 dark:text-white mb-2">
 						ORDER SUMMARY
 					</div>
-					<div class="flex justify-between mb-2 font-bold">
+						<div class="flex justify-between mb-2 font-bold">
 						<span>
 							Subtotal
 						</span>
 						<span>
-							{{ Number::currency($grand_total, 'INR') }}
+							{{ Number::currency($grand_total, 'PHP') }}
 						</span>
 					</div>
-					<div class="flex justify-between mb-2 font-bold">
+						<div class="flex justify-between mb-2 font-bold">
 						<span>
 							Taxes
 						</span>
 						<span>
-							{{ Number::currency(0, 'INR') }}
+							{{ Number::currency(0, 'PHP') }}
 						</span>
 					</div>
-					<div class="flex justify-between mb-2 font-bold">
+						<div class="flex justify-between mb-2 font-bold">
 						<span>
 							Shipping Cost
 						</span>
 						<span>
-							{{ Number::currency(0, 'INR') }}
+							{{ Number::currency(0, 'PHP') }}
 						</span>
 					</div>
 					<hr class="bg-slate-400 my-4 h-1 rounded">
@@ -163,7 +163,7 @@
 							Grand Total
 						</span>
 						<span>
-							{{ Number::currency($grand_total, 'INR') }}
+							{{ Number::currency($grand_total, 'PHP') }}
 						</span>
 					</div>
 					</hr>
@@ -195,7 +195,7 @@
 									</p>
 								</div>
 								<div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-									{{ Number::currency($ci['total_amount'], 'INR') }}
+									{{ Number::currency($ci['total_amount'], 'PHP') }}
 									
 								</div>
 							</div>
